@@ -1,0 +1,61 @@
+:root {
+    /* Colors */
+    --bg-color: #0a0a0a;
+    --bg-color-secondary: #111111;
+    --text-color: #ffffff;
+    --text-color-secondary: #a0a0a0;
+    --primary-color: #007bff;
+    /* Java-ish Blue */
+    --secondary-color: #f89820;
+    /* Java-ish Orange */
+    --accent-color: #64ffda;
+    /* Tech Green */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+    --gradient-dark: linear-gradient(145deg, #1e1e1e, #121212);
+
+    /* Fonts */
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

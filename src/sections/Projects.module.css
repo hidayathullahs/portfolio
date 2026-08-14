@@ -1,0 +1,123 @@
+.projects {
+    min-height: 100vh;
+    padding: 100px 0;
+    background-color: var(--bg-color-secondary);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.heading {
+    font-size: clamp(26px, 5vw, 32px);
+    margin-right: 20px;
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
+.line {
+    height: 1px;
+    background-color: var(--text-color-secondary);
+    width: 300px;
+    opacity: 0.3;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background-color: #171717;
+    border-radius: 4px;
+    padding: 2rem 1.75rem;
+    transition: transform 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.folderIcon {
+    color: var(--primary-color);
+    font-size: 40px;
+}
+
+.links {
+    display: flex;
+    gap: 15px;
+}
+
+.links a {
+    color: var(--text-color-secondary);
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--primary-color);
+}
+
+.projectTitle {
+    margin: 0 0 10px;
+    color: var(--text-color-secondary);
+    font-size: 22px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.card:hover .projectTitle {
+    color: var(--primary-color);
+}
+
+.projectDescription {
+    color: var(--text-color-secondary);
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.techList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-color-secondary);
+}
+
+@media (max-width: 768px) {
+    .header {
+        justify-content: center;
+    }
+
+    .line {
+        display: none;
+    }
+}

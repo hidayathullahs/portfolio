@@ -1,0 +1,75 @@
+.contact {
+    min-height: 80vh;
+    /* Not quite full height to allow footer */
+    padding: 100px 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.overline {
+    color: var(--primary-color);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.heading {
+    font-size: clamp(40px, 5vw, 60px);
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.description {
+    color: var(--text-color-secondary);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+.emailBtn {
+    padding: 1.25rem 1.75rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.emailBtn:hover {
+    background: rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.socialLink {
+    font-size: 1.5rem;
+    color: var(--text-color-secondary);
+    transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
