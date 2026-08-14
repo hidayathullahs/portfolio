@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
-import { CustomCursor } from './components/CustomCursor';
-import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { CommandPalette } from './components/CommandPalette';
 import { Hero } from './sections/Hero';
@@ -50,12 +48,6 @@ export default function App() {
     <div className="relative min-h-screen bg-[#050816] text-white overflow-x-hidden selection:bg-cyan-500 selection:text-black">
       {/* Noise Texture Overlay */}
       <div className="noise-overlay" />
-
-      {/* Luxury Custom Magnetic Cursor */}
-      <CustomCursor />
-
-      {/* Loading Screen */}
-      <LoadingScreen />
 
       {/* Top Navbar */}
       <Navbar onOpenCommandPalette={() => setCommandPaletteOpen(true)} />

@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 import { experienceTimeline } from '../data/portfolioData';
 
 export function Experience() {
@@ -10,24 +9,13 @@ export function Experience() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4">
             <Briefcase className="w-3.5 h-3.5 text-purple-400" />
             <span>CAREER PATH</span>
-          </motion.div>
-          <motion.h2
-            className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
             Work Experience & Track Record
-          </motion.h2>
+          </h2>
           <p className="text-slate-400 text-sm sm:text-base">
             Proven history of delivering high-impact engineering products and leading tech initiatives.
           </p>
@@ -40,19 +28,15 @@ export function Experience() {
 
           <div className="space-y-12">
             {experienceTimeline.map((item, idx) => (
-              <motion.div
+              <div
                 key={idx}
                 className={`relative flex flex-col md:flex-row items-start ${
                   idx % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
               >
                 {/* Timeline Dot Icon */}
                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#050816] border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_15px_#00f0ff] z-20">
-                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
                 </div>
 
                 {/* Card Container */}
@@ -103,7 +87,7 @@ export function Experience() {
                   </div>
                 </div>
 
-              </motion.div>
+              </div>
             ))}
           </div>
 

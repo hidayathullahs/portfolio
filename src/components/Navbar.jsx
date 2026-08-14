@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
 import { Menu, X, Command, Volume2, VolumeX, FileText } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -7,9 +6,6 @@ export function Navbar({ onOpenCommandPalette }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,12 +35,6 @@ export function Navbar({ onOpenCommandPalette }) {
 
   return (
     <>
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 z-[99999] origin-left shadow-[0_0_10px_#00f0ff]"
-        style={{ scaleX }}
-      />
-
       <header
         className={`fixed top-0 left-0 right-0 z-[9990] transition-all duration-300 ${
           isScrolled

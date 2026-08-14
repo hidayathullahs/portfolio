@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Cpu, Terminal, Code } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 
 export function TechStack() {
   const techLogos = [
@@ -18,9 +17,6 @@ export function TechStack() {
     { name: "OpenAI RAG", color: "text-pink-400" },
   ];
 
-  // Repeat for continuous seamless loop marquee
-  const marqueeItems = [...techLogos, ...techLogos, ...techLogos];
-
   return (
     <section className="py-16 bg-[#050816] text-white border-y border-slate-800/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
@@ -29,27 +25,18 @@ export function TechStack() {
         </span>
       </div>
 
-      {/* Marquee Loop Track */}
-      <div className="relative w-full overflow-hidden flex items-center">
-        {/* Left & Right Shadow Gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050816] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050816] to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          className="flex space-x-6 whitespace-nowrap"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-        >
-          {marqueeItems.map((tech, idx) => (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {techLogos.map((tech, idx) => (
             <div
               key={idx}
-              className="inline-flex items-center space-x-3 px-6 py-3 rounded-xl glass-card border border-slate-800 text-slate-300 hover:border-cyan-500/40 hover:text-white transition-all shrink-0"
+              className="inline-flex items-center space-x-3 px-6 py-3 rounded-xl glass-card border border-slate-800 text-slate-300 hover:border-cyan-500/40 hover:text-white transition-all"
             >
               <Terminal className={`w-4 h-4 ${tech.color}`} />
               <span className="font-mono text-sm font-semibold">{tech.name}</span>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

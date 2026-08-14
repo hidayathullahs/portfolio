@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Cpu, Search, Sparkles, Code, Terminal, Layers } from 'lucide-react';
+import { Cpu, Search, Terminal } from 'lucide-react';
 import { skills, skillsCategories } from '../data/portfolioData';
 
 export function Skills() {
@@ -21,24 +20,13 @@ export function Skills() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-cyan-500/30 text-xs font-mono text-cyan-300 uppercase tracking-widest mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-cyan-500/30 text-xs font-mono text-cyan-300 uppercase tracking-widest mb-4">
             <Cpu className="w-3.5 h-3.5 text-cyan-400" />
             <span>TECHNICAL SKILLSET</span>
-          </motion.div>
-          <motion.h2
-            className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
             Mastered Technologies & Frameworks
-          </motion.h2>
+          </h2>
           <p className="text-slate-400 text-sm sm:text-base">
             Filtered interactive skill cards with proficiency metrics and 3D hover effects.
           </p>
@@ -79,57 +67,44 @@ export function Skills() {
         </div>
 
         {/* Skills Cards Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-        >
-          <AnimatePresence>
-            {filteredSkills.map((skill, idx) => (
-              <motion.div
-                key={skill.name}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="glass-card p-5 relative overflow-hidden group hover:shadow-[0_0_25px_rgba(0,240,255,0.15)]"
-              >
-                {/* Glow Accent */}
-                <div className={`absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-r ${skill.glowColor} opacity-20 blur-xl group-hover:opacity-40 transition-opacity`} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredSkills.map((skill) => (
+            <div
+              key={skill.name}
+              className="glass-card p-5 relative overflow-hidden group hover:shadow-[0_0_25px_rgba(0,240,255,0.15)]"
+            >
+              {/* Glow Accent */}
+              <div className={`absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-r ${skill.glowColor} opacity-20 blur-xl group-hover:opacity-40 transition-opacity`} />
 
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 font-bold group-hover:scale-110 transition-transform">
-                      <Terminal className="w-5 h-5 text-cyan-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-sm text-white group-hover:text-cyan-300 transition-colors">
-                        {skill.name}
-                      </h3>
-                      <span className="text-[10px] font-mono text-slate-400 uppercase">
-                        {skill.category}
-                      </span>
-                    </div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 font-bold group-hover:scale-110 transition-transform">
+                    <Terminal className="w-5 h-5 text-cyan-400" />
                   </div>
-                  <span className="text-xs font-mono font-bold text-cyan-400">
-                    {skill.level}%
-                  </span>
+                  <div>
+                    <h3 className="font-bold text-sm text-white group-hover:text-cyan-300 transition-colors">
+                      {skill.name}
+                    </h3>
+                    <span className="text-[10px] font-mono text-slate-400 uppercase">
+                      {skill.category}
+                    </span>
+                  </div>
                 </div>
+                <span className="text-xs font-mono font-bold text-cyan-400">
+                  {skill.level}%
+                </span>
+              </div>
 
-                {/* Level Progress Bar */}
-                <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
-                  <motion.div
-                    className={`h-full bg-gradient-to-r ${skill.glowColor}`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              {/* Level Progress Bar */}
+              <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                <div
+                  className={`h-full bg-gradient-to-r ${skill.glowColor} transition-all duration-500`}
+                  style={{ width: `${skill.level}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
       </div>
     </section>

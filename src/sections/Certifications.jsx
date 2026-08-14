@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Award, ShieldCheck, ExternalLink, Eye, Calendar } from 'lucide-react';
+import { Award, ExternalLink, Eye, Calendar } from 'lucide-react';
 import { certificates } from '../data/portfolioData';
 import { CertificateModal } from '../components/CertificateModal';
 
@@ -15,24 +14,13 @@ export function Certifications() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-cyan-500/30 text-xs font-mono text-cyan-300 uppercase tracking-widest mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-cyan-500/30 text-xs font-mono text-cyan-300 uppercase tracking-widest mb-4">
             <Award className="w-3.5 h-3.5 text-cyan-400" />
             <span>CREDENTIALS & ACCREDITATION</span>
-          </motion.div>
-          <motion.h2
-            className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
             Certificates & Achievements
-          </motion.h2>
+          </h2>
           <p className="text-slate-400 text-sm sm:text-base">
             Verified industry certifications from AWS, Meta, DeepLearning.AI, and Three.js Journey.
           </p>
@@ -40,13 +28,9 @@ export function Certifications() {
 
         {/* Certificate Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {certificates.map((cert, idx) => (
-            <motion.div
+          {certificates.map((cert) => (
+            <div
               key={cert.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="glass-card flex flex-col overflow-hidden group hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] transition-all cursor-pointer"
               onClick={() => setSelectedCert(cert)}
             >
@@ -91,7 +75,7 @@ export function Certifications() {
                 </div>
               </div>
 
-            </motion.div>
+            </div>
           ))}
         </div>
 

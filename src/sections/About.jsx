@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { User, Award, Code, Sparkles, CheckCircle, Terminal } from 'lucide-react';
+import { User, CheckCircle, Terminal } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export function About() {
@@ -10,37 +9,20 @@ export function About() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4">
             <User className="w-3.5 h-3.5 text-purple-400" />
             <span>ABOUT ME</span>
-          </motion.div>
-          <motion.h2
-            className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
             Crafting Digital Excellence Through Code & Creativity
-          </motion.h2>
+          </h2>
         </div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Glass Card Profile */}
-          <motion.div
-            className="lg:col-span-5 relative"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl p-1 bg-gradient-to-tr from-cyan-500 via-purple-600 to-pink-500 shadow-[0_0_40px_rgba(0,240,255,0.25)]">
               <div className="bg-[#0b1120] rounded-xl overflow-hidden p-6 glass-card">
                 <img
@@ -59,16 +41,10 @@ export function About() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Narrative & Stats */}
-          <motion.div
-            className="lg:col-span-7 space-y-8"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4 text-slate-300 text-base leading-relaxed">
               <p>
                 As a passionate Software Engineer and 3D Web Architect, I specialize in engineering robust web applications, interactive 3D WebGL experiences, and scalable cloud microservices.
@@ -108,7 +84,7 @@ export function About() {
               ))}
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
       </div>

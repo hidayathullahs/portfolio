@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Copy } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
@@ -44,24 +43,13 @@ export function Contact() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4">
             <Mail className="w-3.5 h-3.5 text-purple-400" />
             <span>LET'S CONNECT</span>
-          </motion.div>
-          <motion.h2
-            className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
             Get In Touch & Hire Me
-          </motion.h2>
+          </h2>
           <p className="text-slate-400 text-sm sm:text-base">
             Have a project in mind, need technical consulting, or looking to hire? Send me a message!
           </p>
@@ -71,12 +59,7 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Direct Details */}
-          <motion.div
-            className="lg:col-span-5 space-y-6"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="lg:col-span-5 space-y-6">
             <div className="glass-card p-6 space-y-6">
               <h3 className="text-xl font-bold text-white mb-4">Contact Information</h3>
 
@@ -154,15 +137,10 @@ export function Contact() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Contact Form */}
-          <motion.div
-            className="lg:col-span-7"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="lg:col-span-7">
             <div className="glass-card p-8 relative">
               <h3 className="text-xl font-bold text-white mb-6">Send Me a Message</h3>
 
@@ -250,7 +228,7 @@ export function Contact() {
                 </form>
               )}
             </div>
-          </motion.div>
+          </div>
 
         </div>
 

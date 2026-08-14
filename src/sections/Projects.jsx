@@ -1,5 +1,4 @@
 import React, { useState, useRef, useCallback, useEffect, memo } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
 import {
   X, Search, ArrowUpRight,
   Globe, Star, CheckCircle2,
@@ -663,11 +662,7 @@ function ProjectModal({ project, onClose }) {
   if (!project) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
+    <div
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, zIndex: 99999,
@@ -675,9 +670,7 @@ function ProjectModal({ project, onClose }) {
         background: 'rgba(2, 6, 16, 0.92)', backdropFilter: 'blur(20px)',
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92, y: 40 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
+      <div
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
         onClick={(e) => e.stopPropagation()}
@@ -836,8 +829,8 @@ function ProjectModal({ project, onClose }) {
             )}
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 

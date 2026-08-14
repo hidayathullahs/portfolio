@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUp, Mail, Heart, Clock } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import { personalInfo } from '../data/portfolioData';
+import { ArrowUp, Heart, Clock } from 'lucide-react';
 
 export function Footer() {
   const [time, setTime] = useState('');
