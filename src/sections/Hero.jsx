@@ -4,7 +4,7 @@ import { personalInfo } from '../data/portfolioData';
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
       {/* Cyber Grid Overlay */}
       <div className="absolute inset-0 cyber-grid pointer-events-none opacity-40 z-[1]" />
       <div className="aurora-bg" />
@@ -42,7 +42,7 @@ export function Hero() {
         </div>
 
         {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-12">
           <a
             href="#projects"
             className="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white font-bold text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:shadow-[0_0_40px_rgba(0,240,255,0.7)] hover:scale-105 transition-all flex items-center justify-center space-x-2"
@@ -65,7 +65,7 @@ export function Hero() {
         {/* Scroll Indicator */}
         <a
           href="#about"
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-slate-400 hover:text-cyan-400 transition-colors"
+          className="flex flex-col items-center text-slate-400 hover:text-cyan-400 transition-colors pt-4"
         >
           <span className="text-[10px] font-mono tracking-widest uppercase mb-1">SCROLL DOWN</span>
           <ArrowDown className="w-4 h-4 text-cyan-400" />
