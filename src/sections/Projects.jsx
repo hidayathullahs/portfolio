@@ -254,7 +254,6 @@ const TechBadge = memo(({ label, color }) => (
 ═══════════════════════════════════════════════════════════ */
 function FeaturedProject({ project, onOpen }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
   const imgRef = useRef(null);
 
   const handleMouseMove = useCallback((e) => {
@@ -273,11 +272,8 @@ function FeaturedProject({ project, onOpen }) {
   }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
       style={{ marginBottom: '40px' }}
     >
       {/* Featured label */}
@@ -458,7 +454,7 @@ function FeaturedProject({ project, onOpen }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -468,14 +464,10 @@ function FeaturedProject({ project, onOpen }) {
 const ProjectCard = memo(({ project, index, onOpen }) => {
   const { ref, handleMouseMove, handleMouseLeave } = useTilt(6);
   const wrapRef = useRef(null);
-  const isInView = useInView(wrapRef, { once: true, margin: '-40px' });
 
   return (
-    <motion.div
+    <div
       ref={wrapRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
       <div
         ref={ref}
@@ -641,7 +633,7 @@ const ProjectCard = memo(({ project, index, onOpen }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 });
 
@@ -671,8 +663,6 @@ function ProjectModal({ project, onClose }) {
       }}
     >
       <div
-        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
         onClick={(e) => e.stopPropagation()}
         style={{
           width: '100%', maxWidth: 860, maxHeight: '90vh',
@@ -844,7 +834,6 @@ export function Projects() {
 
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
-  const isTitleInView = useInView(titleRef, { once: true, margin: '-60px' });
 
   // Filter + search
   const filteredProjects = PROJECTS.filter((p) => {
@@ -858,7 +847,7 @@ export function Projects() {
   const featuredProject = filteredProjects.find((p) => p.featured);
   const gridProjects = filteredProjects.filter((p) => !p.featured);
 
-  // Title animation words
+  // Title words
   const titleWords = ['Featured', 'Projects'];
 
   return (
@@ -935,10 +924,7 @@ export function Projects() {
         {/* ── SECTION HEADER ── */}
         <div style={{ marginBottom: '64px' }}>
           {/* Label */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
+          <div
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               padding: '5px 14px', borderRadius: '999px',
@@ -950,16 +936,13 @@ export function Projects() {
             <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#a78bfa' }}>
               Portfolio Showcase
             </span>
-          </motion.div>
+          </div>
 
           {/* Title */}
           <div ref={titleRef} style={{ display: 'flex', gap: '0.3em', flexWrap: 'wrap', marginBottom: '16px' }}>
             {titleWords.map((word, i) => (
-              <motion.span
+              <span
                 key={word}
-                initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
-                animate={isTitleInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-                transition={{ duration: 0.7, delay: i * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
                 style={{
                   display: 'block',
                   fontSize: 'clamp(3rem, 6vw, 5rem)',
@@ -971,25 +954,19 @@ export function Projects() {
                 }}
               >
                 {word}
-              </motion.span>
+              </span>
             ))}
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+          <p
             style={{ fontSize: '1rem', color: '#64748b', maxWidth: 600, lineHeight: 1.7 }}
           >
             Building scalable applications, AI-powered platforms, enterprise software, and real-world digital products.
-          </motion.p>
+          </p>
         </div>
 
         {/* ── FILTER + SEARCH BAR ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
+        <div
           style={{
             display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap',
             marginBottom: '48px', padding: '16px 20px',
@@ -1030,70 +1007,60 @@ export function Projects() {
               className="proj-search-input"
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* ── CONTENT AREA ── */}
-        <AnimatePresence mode="wait">
-          {filteredProjects.length === 0 ? (
-            <motion.div
-              key="empty"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              style={{ textAlign: 'center', padding: '80px 0', color: '#475569' }}
+        {filteredProjects.length === 0 ? (
+          <div
+            style={{ textAlign: 'center', padding: '80px 0', color: '#475569' }}
+          >
+            <Search style={{ width: 40, height: 40, margin: '0 auto 16px', opacity: 0.4 }} />
+            <p style={{ fontSize: '1rem' }}>No projects match "{searchQuery}"</p>
+            <button
+              onClick={() => { setSearchQuery(''); setActiveFilter('All'); }}
+              style={{
+                marginTop: 16, padding: '8px 20px', borderRadius: '10px',
+                background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)',
+                color: '#e2e8f0', fontSize: '0.82rem', cursor: 'pointer',
+              }}
             >
-              <Search style={{ width: 40, height: 40, margin: '0 auto 16px', opacity: 0.4 }} />
-              <p style={{ fontSize: '1rem' }}>No projects match "{searchQuery}"</p>
-              <button
-                onClick={() => { setSearchQuery(''); setActiveFilter('All'); }}
-                style={{
-                  marginTop: 16, padding: '8px 20px', borderRadius: '10px',
-                  background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)',
-                  color: '#e2e8f0', fontSize: '0.82rem', cursor: 'pointer',
-                }}
-              >
-                Clear filters
-              </button>
-            </motion.div>
-          ) : (
-            <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              {/* Featured Project */}
-              {featuredProject && (
-                <FeaturedProject project={featuredProject} onOpen={setSelectedProject} />
-              )}
+              Clear filters
+            </button>
+          </div>
+        ) : (
+          <div>
+            {/* Featured Project */}
+            {featuredProject && (
+              <FeaturedProject project={featuredProject} onOpen={setSelectedProject} />
+            )}
 
-              {/* Grid */}
-              {gridProjects.length > 0 && (
-                <>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px', marginTop: featuredProject ? '8px' : '0' }}>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#475569' }}>
-                      Other Projects
-                    </span>
-                    <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.06)' }} />
-                    <span style={{ fontSize: '0.7rem', color: '#334155' }}>{gridProjects.length} projects</span>
-                  </div>
-                  <div className="proj-grid">
-                    {gridProjects.map((project, index) => (
-                      <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index}
-                        onOpen={setSelectedProject}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+            {/* Grid */}
+            {gridProjects.length > 0 && (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px', marginTop: featuredProject ? '8px' : '0' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#475569' }}>
+                    Other Projects
+                  </span>
+                  <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.06)' }} />
+                  <span style={{ fontSize: '0.7rem', color: '#334155' }}>{gridProjects.length} projects</span>
+                </div>
+                <div className="proj-grid">
+                  {gridProjects.map((project, index) => (
+                    <ProjectCard
+                      key={project.id}
+                      project={project}
+                      index={index}
+                      onOpen={setSelectedProject}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
 
         {/* ── CTA ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
           style={{
             textAlign: 'center', marginTop: '80px', padding: '48px 32px',
             background: 'rgba(139,92,246,0.05)', border: '1px solid rgba(139,92,246,0.15)',
@@ -1121,15 +1088,13 @@ export function Projects() {
           >
             Get In Touch <ArrowUpRight style={{ width: 16, height: 16 }} />
           </a>
-        </motion.div>
+        </div>
       </div>
 
       {/* ── MODAL ── */}
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-        )}
-      </AnimatePresence>
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
     </section>
   );
 }

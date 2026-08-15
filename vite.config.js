@@ -7,4 +7,7 @@ export default defineConfig({
   resolve: {
     dedupe: ['react', 'react-dom'],
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'lucide-react', 'react-icons/fa6', 'react-icons/si', 'canvas-confetti', 'lenis'],
+  },
 })
