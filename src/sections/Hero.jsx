@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Rocket, Code2, CheckCircle, Sparkles, FileText } from 'lucide-react';
 import { personalInfo, heroCards } from '../data/portfolioData';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/profile.png';
 
 const iconMap = {
   Rocket: Rocket,
@@ -41,7 +41,7 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Main 3-Column Visual Layout (Left Narrative, Center Portrait with Orange Arch, Right Info Cards) */}
+        {/* Main 3-Column Visual Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           
           {/* LEFT: Supporting Text & CTAs (4 cols) */}
@@ -86,31 +86,28 @@ export function Hero() {
             </div>
           </div>
 
-          {/* CENTER: Real Photo Cutout with Signature Orange Circle Arch (4 cols) */}
+          {/* CENTER: Transparent Photo Cutout with Signature Orange Circle Arch (4 cols) */}
           <div className="lg:col-span-4 flex justify-center order-1 lg:order-2">
-            <div className="relative w-[280px] sm:w-[340px] md:w-[380px] aspect-[4/5] flex items-end justify-center">
+            <div className="relative w-[300px] sm:w-[360px] md:w-[400px] aspect-[4/5] flex items-end justify-center">
               
               {/* Signature Orange Circle / Arch Backdrop */}
-              <div className="absolute top-10 sm:top-12 w-[240px] sm:w-[300px] md:w-[330px] h-[240px] sm:h-[300px] md:h-[330px] rounded-full bg-orange-radial shadow-[0_20px_50px_rgba(255,106,0,0.35)] z-0" />
-              
-              {/* Subtle Decorative Concentric Ring */}
-              <div className="absolute top-6 sm:top-8 w-[270px] sm:w-[330px] md:w-[360px] h-[270px] sm:h-[330px] md:h-[360px] rounded-full border-2 border-dashed border-brandOrange/20 z-0 pointer-events-none" />
+              <div className="absolute top-16 sm:top-14 w-[280px] sm:w-[340px] md:w-[370px] h-[280px] sm:h-[340px] md:h-[370px] rounded-full bg-orange-radial shadow-[0_20px_60px_rgba(255,106,0,0.4)] z-0" />
 
-              {/* Real User Photo (Overlapping the Arch) */}
-              <div className="relative z-10 w-full h-full flex items-end justify-center">
+              {/* Real User Photo (Clean Cutout overlapping the Orange Circle) */}
+              <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none">
                 <img
                   src={profileImg}
                   alt="Hidayathullah - Software Developer"
-                  className="w-full h-auto max-h-[460px] object-cover object-top drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] rounded-b-2xl"
+                  className="w-full h-auto max-h-[480px] object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                   loading="eager"
                 />
               </div>
 
-              {/* Bottom Arch Floating Badge Overlay (View My Work / Hire Me pill) */}
-              <div className="absolute -bottom-4 z-20 flex items-center bg-darkBg/95 backdrop-blur-md border border-white/10 text-white rounded-full p-1 shadow-xl">
+              {/* Bottom Arch Floating Pill Action Buttons */}
+              <div className="absolute -bottom-4 z-20 flex items-center bg-darkBg/95 backdrop-blur-md border border-white/10 text-white rounded-full p-1 shadow-xl pointer-events-auto">
                 <a
                   href="#projects"
-                  className="px-4 py-2 rounded-full bg-brandOrange text-white text-xs font-bold flex items-center space-x-1 hover:bg-brandOrange-600 transition-colors"
+                  className="px-4 py-2 rounded-full bg-brandOrange text-white text-xs font-bold flex items-center space-x-1 hover:bg-brandOrange-600 transition-colors shadow-sm"
                 >
                   <span>View My Work</span>
                   <ArrowUpRight className="w-3 h-3" />
