@@ -12,10 +12,4 @@ export default defineConfig({
     port: 5173,
     host: true,
   },
-  resolve: {
-    dedupe: ['react', 'react-dom'],
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'lucide-react', 'react-icons/fa6', 'react-icons/si', 'canvas-confetti', 'lenis'],
-  },
 })
