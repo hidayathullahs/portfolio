@@ -461,7 +461,7 @@ function FeaturedProject({ project, onOpen }) {
 /* ═══════════════════════════════════════════════════════════
    PROJECT CARD (GRID)
 ═══════════════════════════════════════════════════════════ */
-const ProjectCard = memo(({ project, index, onOpen }) => {
+const ProjectCard = memo(({ project, onOpen }) => {
   const { ref, handleMouseMove, handleMouseLeave } = useTilt(6);
   const wrapRef = useRef(null);
 
