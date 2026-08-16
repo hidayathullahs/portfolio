@@ -1,96 +1,48 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
-import { experienceTimeline } from '../data/portfolioData';
+import { Briefcase, GraduationCap, Code, Rocket, CheckCircle2 } from 'lucide-react';
+import { journeyTimeline } from '../data/portfolioData';
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-24 bg-[#050816] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
+      <div className="max-w-5xl mx-auto">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4">
-            <Briefcase className="w-3.5 h-3.5 text-purple-400" />
-            <span>CAREER PATH</span>
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brandOrange/10 text-brandOrange text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+            <span>Career Milestones</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
-            Work Experience & Track Record
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#080808] tracking-tight mb-3">
+            Learning & Building Journey
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
-            Proven history of delivering high-impact engineering products and leading tech initiatives.
+          <p className="text-sm sm:text-base text-slate-600">
+            A track record of engineering education, real-world development, and continuous self-improvement.
           </p>
         </div>
 
-        {/* Vertical Timeline Container */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Central Glowing Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-500 to-pink-500 -translate-x-1/2 shadow-[0_0_12px_#00f0ff]" />
+        {/* Timeline List */}
+        <div className="relative border-l-2 border-slate-200 ml-4 sm:ml-8 space-y-10">
+          {journeyTimeline.map((item, idx) => (
+            <div key={idx} className="relative pl-6 sm:pl-8 group">
+              {/* Timeline Bullet */}
+              <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-brandOrange group-hover:scale-125 group-hover:bg-brandOrange transition-all shadow-sm" />
 
-          <div className="space-y-12">
-            {experienceTimeline.map((item, idx) => (
-              <div
-                key={idx}
-                className={`relative flex flex-col md:flex-row items-start ${
-                  idx % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Timeline Dot Icon */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#050816] border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_15px_#00f0ff] z-20">
-                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
+              {/* Card Container */}
+              <div className="p-6 rounded-2xl bg-lightBg border border-slate-200/80 shadow-sm hover:border-brandOrange/40 hover:shadow-md transition-all">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 className="text-lg font-bold text-[#080808] group-hover:text-brandOrange transition-colors">
+                    {item.title}
+                  </h3>
+                  <span className="px-3 py-1 rounded-full bg-brandOrange/10 text-brandOrange font-mono text-xs font-bold">
+                    {item.year}
+                  </span>
                 </div>
-
-                {/* Card Container */}
-                <div className="w-full md:w-[calc(50%-2.5rem)] pl-12 md:pl-0">
-                  <div className="glass-card p-6 relative hover:border-cyan-500/40 transition-all">
-                    
-                    {/* Header */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-mono text-cyan-400 flex items-center">
-                        <Calendar className="w-3.5 h-3.5 mr-1" />
-                        {item.period}
-                      </span>
-                      <span className="text-xs font-mono text-slate-400 flex items-center">
-                        <MapPin className="w-3.5 h-3.5 mr-1" />
-                        {item.location}
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg font-bold text-white mb-1">{item.role}</h3>
-                    <h4 className="text-sm font-semibold text-purple-400 mb-3">{item.company}</h4>
-
-                    <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-
-                    {/* Achievements Bullet List */}
-                    <div className="space-y-1.5 mb-4">
-                      {item.achievements.map((ach, aIdx) => (
-                        <div key={aIdx} className="flex items-start text-xs text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 mr-2 shrink-0 mt-0.5" />
-                          <span>{ach}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">
-                      {item.tech.map((t, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2.5 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-300 border border-slate-800"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
-                  </div>
-                </div>
-
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-            ))}
-          </div>
-
+            </div>
+          ))}
         </div>
 
       </div>

@@ -1,77 +1,72 @@
 import React from 'react';
-import { Globe, Box, Smartphone, Sparkles, Server, Palette, Cloud, Zap } from 'lucide-react';
+import { Globe, Layout, Smartphone, Cpu, Server, Palette } from 'lucide-react';
 import { services } from '../data/portfolioData';
 
-export function Services() {
-  const iconMap = {
-    Globe,
-    Box,
-    Smartphone,
-    Sparkles,
-    Server,
-    Palette,
-    Cloud,
-    Zap,
-  };
+const iconMap = {
+  Globe: Globe,
+  Layout: Layout,
+  Smartphone: Smartphone,
+  Cpu: Cpu,
+  Server: Server,
+  Palette: Palette,
+};
 
+export function Services() {
   return (
-    <section id="services" className="relative py-24 bg-[#050816] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="services" className="relative bg-darkBg text-white pt-20 pb-24 px-4 sm:px-6 lg:px-8 rounded-t-[36px] sm:rounded-t-[50px] shadow-[0_-15px_40px_rgba(0,0,0,0.4)]">
+      <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full glass-card border border-purple-500/30 text-xs font-mono text-purple-300 uppercase tracking-widest mb-4">
-            <Zap className="w-3.5 h-3.5 text-purple-400" />
-            <span>WHAT I OFFER</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 border-b border-white/10 pb-8">
+          <div>
+            <div className="flex items-center space-x-2 text-brandOrange font-mono text-sm tracking-wider uppercase mb-2">
+              <span className="w-8 h-0.5 bg-brandOrange" />
+              <span>Services</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+              What I Build & Deliver
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white text-gradient mb-4">
-            Specialized Engineering Services
-          </h2>
-          <p className="text-slate-400 text-sm sm:text-base">
-            End-to-end technical solutions tailored for startups, enterprise clients, and scale-ups.
+          <p className="max-w-md text-sm sm:text-base text-slate-400 leading-relaxed">
+            I provide end-to-end solutions — from designing intuitive interfaces to developing powerful, scalable web, mobile, and AI applications.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((item) => {
-            const IconComponent = iconMap[item.icon] || Globe;
+        {/* 6 Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => {
+            const IconComp = iconMap[service.icon] || Globe;
             return (
               <div
-                key={item.id}
-                className="glass-card p-6 flex flex-col justify-between group hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] transition-all"
+                key={service.id}
+                className="group relative p-6 sm:p-7 rounded-3xl bg-[#121212] border border-white/5 hover:border-brandOrange/40 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_15px_35px_rgba(255,106,0,0.15)] flex flex-col justify-between"
               >
                 <div>
-                  {/* Icon Frame */}
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-cyan-500 p-[1px] mb-6 shadow-md group-hover:scale-110 transition-transform">
-                    <div className="w-full h-full bg-[#0b1120] rounded-[15px] flex items-center justify-center text-cyan-300">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
+                  {/* Service Icon */}
+                  <div className="w-12 h-12 rounded-2xl bg-brandOrange/10 border border-brandOrange/20 text-brandOrange flex items-center justify-center mb-6 group-hover:bg-brandOrange group-hover:text-white transition-all duration-300 shadow-sm">
+                    <IconComp className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-                    {item.title}
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brandOrange transition-colors">
+                    {service.title}
                   </h3>
-
-                  <p className="text-xs text-slate-300 leading-relaxed mb-6">
-                    {item.description}
+                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                    {service.description}
                   </p>
                 </div>
 
-                <div>
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800">
-                    {item.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                  {service.technologies.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] font-mono text-slate-300 group-hover:border-brandOrange/30 group-hover:text-brandOrange-100 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-
               </div>
             );
           })}

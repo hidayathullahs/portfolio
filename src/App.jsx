@@ -1,31 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
-import { CommandPalette } from './components/CommandPalette';
 import { Hero } from './sections/Hero';
+import { Services } from './sections/Services';
 import { About } from './sections/About';
 import { Skills } from './sections/Skills';
-import { Experience } from './sections/Experience';
 import { Projects } from './sections/Projects';
-import { Services } from './sections/Services';
+import { Experience } from './sections/Experience';
 import { Certifications } from './sections/Certifications';
-import { TechStack } from './sections/TechStack';
-import { GithubStats } from './sections/GithubStats';
-import { Testimonials } from './sections/Testimonials';
-import { FAQ } from './sections/FAQ';
 import { Contact } from './sections/Contact';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
-
   useEffect(() => {
-    // Initialize Lenis Smooth Scroll
+    // Initialize Smooth Scroll
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
     });
 
     function raf(time) {
@@ -34,43 +27,25 @@ export default function App() {
     }
     requestAnimationFrame(raf);
 
-    // Event listener for opening command palette via custom event
-    const handleOpenCmd = () => setCommandPaletteOpen(true);
-    window.addEventListener('open-command-palette', handleOpenCmd);
-
     return () => {
       lenis.destroy();
-      window.removeEventListener('open-command-palette', handleOpenCmd);
     };
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#050816] text-white overflow-x-hidden selection:bg-cyan-500 selection:text-black">
-      {/* Noise Texture Overlay */}
-      <div className="noise-overlay" />
+    <div className="relative min-h-screen bg-lightBg text-[#111111] overflow-x-hidden font-sans">
+      {/* Sticky Floating Navbar */}
+      <Navbar />
 
-      {/* Top Navbar */}
-      <Navbar onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
-
-      {/* Command Palette Modal */}
-      <CommandPalette
-        isOpen={commandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
-      />
-
-      {/* Main Page Sections */}
+      {/* Main Sections */}
       <main>
         <Hero />
+        <Services />
         <About />
         <Skills />
-        <Experience />
         <Projects />
-        <Services />
+        <Experience />
         <Certifications />
-        <TechStack />
-        <GithubStats />
-        <Testimonials />
-        <FAQ />
         <Contact />
       </main>
 
