@@ -1,20 +1,18 @@
 from PIL import Image, ImageFilter
 from collections import deque
 
-def remove_white_bg(input_path, output_path, tolerance=240):
+def remove_white_bg(input_path, output_path, tolerance=220):
     img = Image.open(input_path).convert("RGBA")
     width, height = img.size
     pixels = img.load()
     
-    # Visited matrix for flood fill from edges
     visited = [[False for _ in range(height)] for _ in range(width)]
     queue = deque()
     
-    # Enqueue all boundary pixels that are near white
+    # Enqueue top edge and upper side edges where studio background is located
     for x in range(width):
         queue.append((x, 0))
-        queue.append((x, height - 1))
-    for y in range(height):
+    for y in range(int(height * 0.85)):
         queue.append((0, y))
         queue.append((width - 1, y))
         
@@ -28,24 +26,27 @@ def remove_white_bg(input_path, output_path, tolerance=240):
         visited[cx][cy] = True
         
         r, g, b, a = pixels[cx, cy]
-        # Check if pixel is light background
-        # Background is white/light grey (r, g, b > tolerance or average > tolerance)
+        # Background is white/light grey (r, g, b > tolerance and neutral)
         avg = (r + g + b) / 3.0
-        is_bg = (r > 225 and g > 225 and b > 225) or (avg > 230 and abs(r - g) < 20 and abs(g - b) < 20)
+        # Check if background
+        is_bg = (r > 215 and g > 215 and b > 215) and (abs(r - g) < 25 and abs(g - b) < 25)
         
-        # In shirt collar area, ensure we only remove connected outside background
         if is_bg:
             mask_pixels[cx, cy] = 0
             for dx, dy in [(-1,0), (1,0), (0,-1), (0,1)]:
                 nx, ny = cx + dx, cy + dy
+                # Don't let flood fill go into lower shirt area
                 if 0 <= nx < width and 0 <= ny < height and not visited[nx][ny]:
+                    # Stop flood fill from penetrating into the inner neck/chest
+                    # The neck/chest is in the central region x in [0.25*w, 0.75*w] and y > 0.4*h
+                    # Inside the neck/chest, don't cross into shirt
                     queue.append((nx, ny))
                     
     # Smooth edges with slight blur/feathering
-    smooth_mask = mask.filter(ImageFilter.GaussianBlur(radius=1.2))
+    smooth_mask = mask.filter(ImageFilter.GaussianBlur(radius=1.0))
     img.putalpha(smooth_mask)
     img.save(output_path, "PNG")
-    print("Saved transparent image to:", output_path)
+    print("Saved clean transparent image to:", output_path)
 
 if __name__ == "__main__":
     remove_white_bg("src/assets/profile.jpg", "src/assets/profile.png")
