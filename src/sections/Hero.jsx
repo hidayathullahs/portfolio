@@ -84,17 +84,17 @@ export function Hero() {
 
           {/* CENTER COLUMN: Real Photo Cutout Overlapping Orange Circle Arch (4 cols) */}
           <div className="lg:col-span-4 flex justify-center order-1 lg:order-2">
-            <div className="relative w-[300px] sm:w-[360px] md:w-[410px] h-[370px] sm:h-[430px] md:h-[470px] flex items-end justify-center">
+            <div className="relative w-[300px] sm:w-[360px] md:w-[410px] h-[400px] sm:h-[480px] md:h-[520px] flex items-end justify-center">
               
               {/* Solid Orange Circle Arch Backdrop */}
-              <div className="absolute top-16 sm:top-14 w-[280px] sm:w-[340px] md:w-[380px] h-[280px] sm:h-[340px] md:h-[380px] rounded-full bg-brandOrange shadow-[0_20px_50px_rgba(255,106,0,0.4)] z-0" />
+              <div className="absolute top-24 sm:top-20 w-[280px] sm:w-[340px] md:w-[370px] h-[280px] sm:h-[340px] md:h-[370px] rounded-full bg-brandOrange shadow-[0_25px_60px_rgba(255,106,0,0.42)] z-0" />
 
               {/* Transparent Portrait Cutout */}
               <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none">
                 <img
                   src={profileImg}
                   alt="Hidayathullah - Software Developer"
-                  className="w-full h-auto max-h-[470px] object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.28)]"
+                  className="w-auto h-full max-h-[510px] object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.3)]"
                   loading="eager"
                 />
               </div>
