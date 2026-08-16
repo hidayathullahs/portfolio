@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Rocket, Code2, CheckCircle, Sparkles, Users } from 'lucide-react';
+import { ArrowUpRight, Rocket, Code2, CheckCircle, Users } from 'lucide-react';
 import { heroCards } from '../data/portfolioData';
 import profileImg from '../assets/profile.png';
 
@@ -12,44 +12,45 @@ const iconMap = {
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen bg-lightBg pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 overflow-hidden">
-      {/* Background Subtle Orange Ambient Glow */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[850px] h-[400px] bg-brandOrange/6 blur-[130px] rounded-full pointer-events-none" />
+    <section id="hero" className="relative min-h-screen bg-lightBg pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
+      {/* Subtle Warm Glow in the Center */}
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[800px] h-[380px] bg-brandOrange/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         
-        {/* Top Hello Badge with Orange Doodle Lines */}
-        <div className="flex justify-center mb-5 sm:mb-6">
-          <div className="relative inline-flex items-center px-5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-sm text-xs sm:text-sm font-semibold text-slate-900">
-            <span>Hello! 👋</span>
+        {/* Hello Badge */}
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="relative inline-flex items-center px-4 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-xs sm:text-sm font-semibold text-slate-900">
+            <span>Hello!</span>
             
-            {/* Orange Sketch Doodle Rays (Matching Reference) */}
-            <div className="absolute -top-3.5 -right-2.5 flex space-x-0.5 text-brandOrange font-extrabold text-sm pointer-events-none select-none">
+            {/* Top-Right Orange Doodle Accent Rays */}
+            <div className="absolute -top-3.5 -right-3 text-brandOrange font-extrabold text-xs select-none pointer-events-none flex space-x-0.5">
               <span className="transform rotate-12">/</span>
-              <span className="transform -rotate-12">|</span>
+              <span className="transform -rotate-6">|</span>
               <span className="transform rotate-45">\</span>
             </div>
             
-            <div className="absolute -bottom-3 -left-3 flex space-x-0.5 text-brandOrange font-extrabold text-sm pointer-events-none select-none">
+            {/* Bottom-Left Orange Doodle Accent Rays */}
+            <div className="absolute -bottom-3 -left-3 text-brandOrange font-extrabold text-xs select-none pointer-events-none flex space-x-0.5">
               <span className="transform rotate-45">\</span>
               <span className="transform -rotate-12">/</span>
             </div>
           </div>
         </div>
 
-        {/* Main Hero Headline */}
-        <div className="text-center max-w-5xl mx-auto mb-10 lg:mb-14">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight text-[#080808] leading-[1.06]">
-            I'm <span className="text-gradient-orange">Hidayathullah</span>,
+        {/* Master Headline */}
+        <div className="text-center max-w-5xl mx-auto mb-8 sm:mb-12">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black tracking-tight text-[#080808] leading-[1.06]">
+            I'm <span className="text-brandOrange">Hidayathullah</span>,
             <br />
             <span className="text-[#080808]">Software Developer</span>
           </h1>
         </div>
 
-        {/* 3-Column Visual Layout (Narrative + CTAs, Center Portrait with Orange Circle, Right Info Cards) */}
+        {/* 3-Column Layout Matching Master Reference Design */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           
-          {/* LEFT COLUMN: Narrative & CTAs (4 cols) */}
+          {/* LEFT COLUMN: Narrative & Action CTAs (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-center space-y-6 text-center lg:text-left order-2 lg:order-1">
             <div className="space-y-3 max-w-sm mx-auto lg:mx-0">
               <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed">
@@ -81,25 +82,25 @@ export function Hero() {
             </div>
           </div>
 
-          {/* CENTER COLUMN: Transparent Cutout Overlapping Signature Orange Circle Arch (4 cols) */}
+          {/* CENTER COLUMN: Real Photo Cutout Overlapping Orange Circle Arch (4 cols) */}
           <div className="lg:col-span-4 flex justify-center order-1 lg:order-2">
-            <div className="relative w-[300px] sm:w-[360px] md:w-[400px] h-[400px] sm:h-[460px] md:h-[490px] flex items-end justify-center">
+            <div className="relative w-[300px] sm:w-[360px] md:w-[410px] h-[370px] sm:h-[430px] md:h-[470px] flex items-end justify-center">
               
-              {/* Signature Solid Orange Circle Arch Backdrop */}
-              <div className="absolute top-20 sm:top-16 w-[280px] sm:w-[330px] md:w-[360px] h-[280px] sm:h-[330px] md:h-[360px] rounded-full bg-orange-radial shadow-[0_25px_60px_rgba(255,106,0,0.42)] z-0" />
+              {/* Solid Orange Circle Arch Backdrop */}
+              <div className="absolute top-16 sm:top-14 w-[280px] sm:w-[340px] md:w-[380px] h-[280px] sm:h-[340px] md:h-[380px] rounded-full bg-brandOrange shadow-[0_20px_50px_rgba(255,106,0,0.4)] z-0" />
 
               {/* Transparent Portrait Cutout */}
               <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none">
                 <img
                   src={profileImg}
                   alt="Hidayathullah - Software Developer"
-                  className="w-full h-auto max-h-[490px] object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.3)]"
+                  className="w-full h-auto max-h-[470px] object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.28)]"
                   loading="eager"
                 />
               </div>
 
               {/* Bottom Arch Floating Action Pill Overlay */}
-              <div className="absolute -bottom-4 z-20 flex items-center bg-[#0D0D0D]/95 backdrop-blur-md border border-white/10 text-white rounded-full p-1 shadow-2xl pointer-events-auto">
+              <div className="absolute -bottom-3 z-20 flex items-center bg-[#0D0D0D] border border-white/15 text-white rounded-full p-1 shadow-2xl pointer-events-auto">
                 <a
                   href="#projects"
                   className="px-4 py-2 rounded-full bg-brandOrange text-white text-xs font-bold flex items-center space-x-1 hover:bg-brandOrange-600 transition-colors shadow-sm"

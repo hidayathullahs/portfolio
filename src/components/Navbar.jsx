@@ -22,7 +22,7 @@ export function Navbar() {
       setIsScrolled(window.scrollY > 20);
 
       const sections = ['hero', 'about', 'skills', 'projects', 'services', 'certifications', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 220;
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -42,33 +42,33 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 py-4 transition-all duration-300 pointer-events-none">
-      <div className={`w-full max-w-6xl flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-full bg-darkBg/95 backdrop-blur-md border border-white/10 text-white shadow-2xl transition-all duration-300 pointer-events-auto ${
-        isScrolled ? 'shadow-[0_10px_30px_rgba(0,0,0,0.5)] scale-[0.99]' : ''
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 sm:px-6 py-4 pointer-events-none">
+      <div className={`w-full max-w-5xl flex items-center justify-between px-4 sm:px-6 py-2 rounded-full bg-[#050505] border border-white/10 text-white shadow-2xl transition-all duration-300 pointer-events-auto ${
+        isScrolled ? 'shadow-[0_12px_35px_rgba(0,0,0,0.6)] scale-[0.99]' : ''
       }`}>
         
-        {/* Brand Logo */}
+        {/* Left Brand Logo (Orange Rounded Icon + Name) */}
         <a href="#hero" className="flex items-center space-x-2.5 group">
-          <div className="w-8 h-8 rounded-full bg-brandOrange flex items-center justify-center text-white font-extrabold text-sm shadow-[0_0_12px_rgba(255,106,0,0.5)] group-hover:scale-105 transition-transform">
+          <div className="w-8 h-8 rounded-full bg-brandOrange flex items-center justify-center text-white font-extrabold text-xs shadow-[0_0_12px_rgba(255,106,0,0.5)] group-hover:scale-105 transition-transform">
             H
           </div>
-          <span className="font-extrabold tracking-wider text-sm sm:text-base uppercase text-white group-hover:text-brandOrange transition-colors">
+          <span className="font-extrabold tracking-wider text-xs sm:text-sm uppercase text-white group-hover:text-brandOrange transition-colors">
             HIDAYATHULLAH
           </span>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs lg:text-sm font-medium">
+        {/* Center Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-1.5 text-xs font-semibold">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-full transition-all duration-200 ${
                   isActive
-                    ? 'bg-brandOrange text-white font-semibold shadow-[0_2px_10px_rgba(255,106,0,0.4)]'
-                    : 'text-slate-300 hover:text-white hover:bg-white/5'
+                    ? 'bg-brandOrange text-white shadow-[0_2px_12px_rgba(255,106,0,0.4)] font-bold'
+                    : 'text-slate-300 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.name}
@@ -77,7 +77,7 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Right Action Buttons */}
+        {/* Right Desktop Actions */}
         <div className="hidden lg:flex items-center space-x-2">
           <a
             href={personalInfo.resumeUrl}
@@ -97,7 +97,7 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
@@ -109,7 +109,7 @@ export function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-4 top-20 bg-darkBg/98 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-white shadow-2xl flex flex-col space-y-3 md:hidden z-50 pointer-events-auto">
+        <div className="fixed inset-x-4 top-20 bg-[#050505]/98 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-white shadow-2xl flex flex-col space-y-3 md:hidden z-50 pointer-events-auto">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -130,7 +130,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-center flex items-center justify-center space-x-2"
+              className="w-full py-2.5 rounded-xl bg-white/10 text-xs font-semibold text-center flex items-center justify-center space-x-2"
             >
               <FileText className="w-4 h-4 text-brandOrange" />
               <span>Download Resume</span>
