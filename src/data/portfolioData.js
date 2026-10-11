@@ -1,6 +1,9 @@
 import lifeFlowImg from '../assets/projects/lifeflow.png';
 import dressChangerImg from '../assets/projects/dresschanger.png';
 import ultimateJarvisImg from '../assets/projects/ultimate_jarvis.png';
+import smartMoneyImg from '../assets/projects/smart_money.png';
+import azeemAiImg from '../assets/projects/azeem_ai.png';
+import taskflowImg from '../assets/projects/taskflow.png';
 
 export const personalInfo = {
   name: "Hidayathullah",
@@ -183,7 +186,7 @@ export const projects = [
     categoryLabel: "Enterprise Project Management",
     featured: true,
     status: "Completed",
-    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=1200&auto=format&fit=crop",
+    image: taskflowImg,
     shortDescription: "A full-stack enterprise project management system featuring structured Spring Boot backend architecture, role-based access control, and real-time collaboration.",
     problem: "Growing teams need centralized project tracking, clear task delegation, and secure role-based access without overwhelming complexity.",
     solution: "Engineered an enterprise-grade platform with Spring Boot 3, Java 21, React 18, normalized database architecture, and real-time WebSocket communication.",
@@ -228,7 +231,7 @@ export const projects = [
     categoryLabel: "Personal Finance & Utilities",
     featured: false,
     status: "Completed",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
+    image: smartMoneyImg,
     shortDescription: "A Flutter-based personal finance management application with offline-first local database, smart expense tracking, and AI financial coaching.",
     problem: "Users often struggle with manual budgeting, subscription renewals, and tracking recurring payments without compromising financial privacy.",
     solution: "Designed an offline-first mobile app using SQLite, Clean Architecture, and AI insights to provide automated categorization and privacy-preserving finance management.",
@@ -251,7 +254,7 @@ export const projects = [
     categoryLabel: "AI / Multilingual Education",
     featured: false,
     status: "Completed",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    image: azeemAiImg,
     shortDescription: "An AI-powered multilingual language learning ecosystem focused on conversational practice, pronunciation evaluation, and Indian regional languages.",
     problem: "Traditional language learning apps often focus on rigid grammar rules rather than natural conversation in regional Indian languages and colloquial dialects.",
     solution: "Created an interactive learning concept supporting Tamil, Hindi, Tanglish, and Hinglish with spaced repetition, speech evaluation, and gamification.",
