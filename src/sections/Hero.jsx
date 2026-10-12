@@ -125,8 +125,8 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* High-Resolution Portrait Cutout (Head overlaps the sun) */}
-              <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none">
+              {/* High-Resolution Portrait Cutout (Elevated to center harmoniously with the sun) */}
+              <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none -translate-y-8 sm:-translate-y-12 lg:-translate-y-14 scale-105 sm:scale-110">
                 <img
                   src={profileBustImg}
                   alt="Hidayathullah - Software Developer"
@@ -136,7 +136,7 @@ export function Hero() {
               </div>
 
               {/* Hand-Drawn Arrow & Label Annotation (Pin 3 style) */}
-              <div className="hidden sm:flex absolute -left-6 bottom-24 z-20 items-center space-x-2">
+              <div className="hidden sm:flex absolute -left-6 bottom-20 z-20 items-center space-x-2">
                 <span className="font-serif italic text-xs font-semibold text-slate-600 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/90 shadow-sm">
                   Software Developer &#10549;
                 </span>
@@ -154,7 +154,7 @@ export function Hero() {
               </div>
 
               {/* Bottom Credibility Pill (Pin 1 style) */}
-              <div className="absolute -bottom-3 z-20 flex items-center space-x-2 bg-[#0C0F14] text-white px-4 py-2 rounded-full border border-white/15 shadow-xl">
+              <div className="absolute -bottom-1 sm:bottom-0 z-20 flex items-center space-x-2 bg-[#0C0F14] text-white px-4 py-2 rounded-full border border-white/15 shadow-xl">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span className="text-xs font-semibold tracking-wide">Class of 2026 &bull; B.E. Computer Science</span>
               </div>
