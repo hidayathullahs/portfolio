@@ -112,13 +112,13 @@ export function Hero() {
           </div>
 
           {/* RIGHT COLUMN: Large Bust Portrait in Warm Golden-Orange Sun Backdrop (5 cols) */}
-          <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
-            <div className="relative w-[320px] sm:w-[410px] lg:w-[460px] h-[400px] sm:h-[490px] lg:h-[530px] flex items-end justify-center">
+          <div className="lg:col-span-5 flex justify-center items-center order-1 lg:order-2">
+            <div className="relative w-[340px] sm:w-[420px] lg:w-[460px] h-[440px] sm:h-[500px] lg:h-[530px] flex items-center justify-center">
               
-              {/* Sun / Arch Backdrop (Matching Pin 3's circular golden sun) */}
-              <div className="absolute top-12 sm:top-14 w-[280px] sm:w-[360px] lg:w-[400px] h-[280px] sm:h-[360px] lg:h-[400px] rounded-full bg-gradient-to-tr from-[#FF6A00] via-[#FF851A] to-[#FFB03A] shadow-[0_24px_65px_rgba(255,106,0,0.42)] z-0">
+              {/* Sun / Arch Backdrop (Perfect Concentric Center) */}
+              <div className="absolute w-[300px] sm:w-[380px] lg:w-[420px] h-[300px] sm:h-[380px] lg:h-[420px] rounded-full bg-gradient-to-tr from-[#FF6A00] via-[#FF851A] to-[#FFB03A] shadow-[0_24px_65px_rgba(255,106,0,0.42)] z-0">
                 {/* Hand-Drawn Doodle Rays at Top-Right (Pin 3 style) */}
-                <div className="absolute -top-6 -right-2 text-brandOrange font-black text-xl select-none pointer-events-none flex space-x-1 rotate-12">
+                <div className="absolute -top-7 -right-2 text-brandOrange font-black text-xl select-none pointer-events-none flex space-x-1 rotate-12">
                   <span className="transform -rotate-12">/</span>
                   <span>|</span>
                   <span className="transform rotate-12">\</span>
@@ -126,24 +126,24 @@ export function Hero() {
               </div>
 
               {/* High-Resolution Portrait Cutout (Elevated to center harmoniously with the sun) */}
-              <div className="relative z-10 w-full h-full flex items-end justify-center pointer-events-none -translate-y-8 sm:-translate-y-12 lg:-translate-y-14 scale-105 sm:scale-110">
+              <div className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none">
                 <img
                   src={profileBustImg}
                   alt="Hidayathullah - Software Developer"
-                  className="w-auto h-full max-h-[480px] sm:max-h-[520px] object-contain object-bottom drop-shadow-[0_20px_45px_rgba(0,0,0,0.24)]"
+                  className="h-[430px] sm:h-[490px] lg:h-[520px] w-auto max-w-none object-contain -translate-y-5 sm:-translate-y-7 lg:-translate-y-9 drop-shadow-[0_20px_45px_rgba(0,0,0,0.24)]"
                   loading="eager"
                 />
               </div>
 
               {/* Hand-Drawn Arrow & Label Annotation (Pin 3 style) */}
-              <div className="hidden sm:flex absolute -left-6 bottom-20 z-20 items-center space-x-2">
+              <div className="hidden sm:flex absolute -left-4 sm:-left-6 bottom-14 z-20 items-center space-x-2">
                 <span className="font-serif italic text-xs font-semibold text-slate-600 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/90 shadow-sm">
                   Software Developer &#10549;
                 </span>
               </div>
 
               {/* Floating Stat Badge (Pin 2 style) */}
-              <div className="absolute -right-2 sm:-right-4 top-24 z-20 flex items-center space-x-2 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/90 shadow-md">
+              <div className="absolute -right-2 sm:-right-4 top-14 sm:top-18 z-20 flex items-center space-x-2 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/90 shadow-md">
                 <div className="w-8 h-8 rounded-xl bg-brandOrange/10 text-brandOrange flex items-center justify-center font-bold text-sm">
                   ⭐
                 </div>
@@ -154,7 +154,7 @@ export function Hero() {
               </div>
 
               {/* Bottom Credibility Pill (Pin 1 style) */}
-              <div className="absolute -bottom-1 sm:bottom-0 z-20 flex items-center space-x-2 bg-[#0C0F14] text-white px-4 py-2 rounded-full border border-white/15 shadow-xl">
+              <div className="absolute -bottom-2 sm:bottom-0 z-20 flex items-center space-x-2 bg-[#0C0F14] text-white px-4 py-2 rounded-full border border-white/15 shadow-xl">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span className="text-xs font-semibold tracking-wide">Class of 2026 &bull; B.E. Computer Science</span>
               </div>
