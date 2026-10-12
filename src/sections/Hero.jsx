@@ -135,14 +135,26 @@ export function Hero() {
                 />
               </div>
 
+              {/* Left Floating Stat Badge (Pin 2 style) */}
+              <div className="hidden sm:flex absolute -left-3 sm:-left-7 top-14 sm:top-18 z-20 items-center space-x-2 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/90 shadow-md">
+                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-sm">
+                  ⚡
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Architecture</p>
+                  <p className="text-xs font-black text-slate-900">Scalable &amp; Clean</p>
+                </div>
+              </div>
+
               {/* Hand-Drawn Arrow & Label Annotation (Pin 3 style) */}
-              <div className="hidden sm:flex absolute -left-4 sm:-left-6 bottom-14 z-20 items-center space-x-2">
-                <span className="font-serif italic text-xs font-semibold text-slate-600 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/90 shadow-sm">
-                  Software Developer &#10549;
+              <div className="hidden sm:flex absolute -left-3 sm:-left-5 bottom-14 z-20 items-center space-x-2">
+                <span className="font-serif italic text-xs font-semibold text-slate-700 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-sm flex items-center space-x-1">
+                  <span>Full-Stack Builder</span>
+                  <span className="text-brandOrange text-sm">&#10549;</span>
                 </span>
               </div>
 
-              {/* Floating Stat Badge (Pin 2 style) */}
+              {/* Right Floating Stat Badge (Pin 2 style) */}
               <div className="absolute -right-2 sm:-right-4 top-14 sm:top-18 z-20 flex items-center space-x-2 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-slate-200/90 shadow-md">
                 <div className="w-8 h-8 rounded-xl bg-brandOrange/10 text-brandOrange flex items-center justify-center font-bold text-sm">
                   ⭐
@@ -153,10 +165,20 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Bottom Credibility Pill (Pin 1 style) */}
-              <div className="absolute -bottom-2 sm:bottom-0 z-20 flex items-center space-x-2 bg-[#0C0F14] text-white px-4 py-2 rounded-full border border-white/15 shadow-xl">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs font-semibold tracking-wide">Class of 2026 &bull; B.E. Computer Science</span>
+              {/* Bottom Credibility Card: Modern Full-Stack & AI Engineer Badge */}
+              <div className="absolute -bottom-3 sm:-bottom-2 z-20 flex items-center space-x-3 bg-[#0B0F17]/95 backdrop-blur-md text-white px-4 py-2.5 rounded-2xl border border-white/15 shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:scale-[1.02] transition-transform">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brandOrange to-amber-400 flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                  <Code2 className="w-4 h-4" />
+                </div>
+                <div className="text-left leading-tight">
+                  <div className="flex items-center space-x-1.5">
+                    <span className="text-xs font-extrabold text-white tracking-wide">Full-Stack &amp; AI Engineer</span>
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" title="Available for projects"></span>
+                  </div>
+                  <p className="text-[10px] font-mono text-slate-400 mt-0.5">
+                    Spring Boot &bull; React &bull; Flutter &bull; B.E. 2026
+                  </p>
+                </div>
               </div>
 
             </div>
